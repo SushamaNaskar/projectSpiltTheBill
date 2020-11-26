@@ -1,0 +1,192 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Split The Bill</title>
+        <style type="text/css">
+         .headbar
+        {
+            width:1263px;
+            height:60px;
+            background-color:990066;
+            
+        }
+        .headtext
+        {
+            margin:0px 70px;
+        }
+        
+           .container
+        {
+            width:500px;
+            height:550px;
+            background-color:rgb(238, 232, 232) ;
+            margin:70px 80px;
+            border-radius:10px;
+            }
+        .container2
+        {
+           width:400px;
+           height:300px;
+           margin:45px;
+           
+
+        }
+        .container3
+        {
+            width:603px;
+            height:700px;
+            background-color:993366;
+            
+        }
+        .answer
+        {
+            text-align:center;
+            font-size:60px;
+            color:white;
+            margin:70px;
+        }
+        .clearfont
+        {
+            clear:both;
+        }
+        
+        .leftfont
+        {
+            float:left;
+        }
+        input
+        {
+            width:400px;
+            height:60px;
+            border:rgb(238, 232, 232) ;
+            border-radius:8px;
+            
+            
+        }
+        .no-spinners {
+  -moz-appearance:textfield;
+}
+.no-spinners::-webkit-outer-spin-button,
+.no-spinners::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+        
+        button
+        {
+            width:400px;
+            height:40px;
+            background-color:993366;
+           border:1px #fc0066 solid;
+           border-radius:8px;
+        }
+        body{
+            margin:0px;
+        }
+        
+        </style>
+            
+    </head>
+    <body>
+        <div class="headbar">
+            <div class="headtext">
+                   <h1>
+                      <span style="font-size:50px">S</span><span style="color:white">plit The Bill</span>
+                   </h1>
+            </div>
+        </div>
+<div class="clearfont"></div>
+           
+
+                 <div class="container leftfont">
+                            <div style="text-align:center"><h1>Calculator</h1></div>
+                            <div style="text-align:center">Find out how much each person has to pay.</div>
+                                <div class="container2"> 
+    
+                                           <div><input type="number" class="no-spinners" id="amount" placeholder="Total Amount"></div>
+                                           <p></p>
+                                             <p id="wrongamount"></p>
+                                             <div><input type="number" class="no-spinners" id="people" placeholder="Number of People"></div>
+                                              <p></p>
+                                              <p id="wrongno"></p>
+                                             <div><input type="number"  class="no-spinners" id="tip" placeholder="Tips"></div>
+                                             <p id="wrongtip"></p>
+                                               <p></p>
+                                              <div><button id="result" onclick="f3()">calculate</button></div>
+    
+                               </div>
+
+                   </div>
+
+
+                
+                
+
+        <div class="container3 leftfont">
+            <div class="answer">Each person has to pay
+                
+                  <p id="rupee"></p>
+             </div>
+             
+        </div>
+
+
+      
+    
+    <script type="text/javascript">
+        function f3(){
+            document.getElementById("rupee").innerHTML="";
+      var totalamount=document.getElementById("amount").value;
+      var noofpeople=document.getElementById("people").value;
+      var tips=document.getElementById("tip").value;
+      
+      if(totalamount<1 || noofpeople<1 || tips<0 || tips==""){
+
+          if(totalamount<1){
+          document.getElementById("wrongamount").innerHTML="Enter a valid number";
+          document.getElementById("rupee").innerHTML="";
+          }
+          else{
+            document.getElementById("wrongamount").innerHTML="";
+          }
+           if(noofpeople<1) {
+          document.getElementById("wrongno").innerHTML="Enter a valid number";
+          document.getElementById("rupee").innerHTML="";
+         }
+         else{
+             
+            document.getElementById("wrongno").innerHTML="";
+         }
+         if(tips<0 || tips==""){
+              document.getElementById("wrongtip").innerHTML="Enter a valid number";
+          document.getElementById("rupee").innerHTML="";
+          }
+          else{
+            document.getElementById("wrongtip").innerHTML="";
+          }
+          return;
+    
+}
+       else{
+        document.getElementById("wrongamount").innerHTML="";
+        document.getElementById("wrongno").innerHTML="";
+        document.getElementById("wrongtip").innerHTML="";
+           var total=0
+           var noof=Math.round(noofpeople)
+           var tip=Math.round(tips)
+            var total=parseInt(totalamount)+parseInt(tip)
+           var out=total/noof
+           var output=out.toFixed(2);
+
+        document.getElementById("rupee").innerHTML="Rs:"+output;
+        return;
+           
+       }
+        
+    
+        }
+       
+       </script>
+       </body>
+</html>
